@@ -1,7 +1,6 @@
 pipeline {
   agent {
     docker {
-      sh "chmod"
       image "node:8-alpine"
       args "--network=skynet"
     }
