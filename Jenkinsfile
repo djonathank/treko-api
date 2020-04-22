@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage("Build") {
       steps {
-        sh "apk update && apk add --no-cache mongodb"
+        sh "apk add --no-cache mongodb"
         sh "chmod +x ./scripts/dropdb.sh"
         sh "npm install"
       }
@@ -21,12 +21,6 @@ pipeline {
         always {
           junit "log/*.xml"
         }
-      }
-    }
-    stage("Production") {
-      steps {
-        input message: "Go to production? (Clik 'Proceed' to continue)"
-        sh "echo 'subindo em produção'"
       }
     }
   }
