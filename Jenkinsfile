@@ -13,6 +13,7 @@ pipeline {
         sh "apk update && apk add --no-cache mongodb"
         sh "chmod +x ./scripts/dropdb.sh"
         sh "npm install"
+        sh "npm update && npm cache clean --force"
       }
     }
     stage("Test") {
